@@ -10,7 +10,7 @@
 
     <div id="text">
       <p ng-hide="loaded" id="loading">Loading...</p>
-      <p ng-show="loaded">{{ latitude }}, {{ longitude }}</p>
+      <p ng-show="loaded" ng-bind-template="{{ latitude }}, {{ longitude }}"></p>
     </div>
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6s4XHxOwNm03Bm2Y5cCTZYVLmIdJDg14"></script>
