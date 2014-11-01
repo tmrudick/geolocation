@@ -1,0 +1,25 @@
+{
+  "name": "geolocaion",
+  "version": "0.0.0",
+  "authors": [
+    "Tom Rudick <tmrudick@gmail.com>"
+  ],
+  "description": "Quick site that shows your lat/lng coordinates",
+  "main": "index.html",
+  "keywords": [
+    "geo",
+    "location"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.3.1"
+  }
+}

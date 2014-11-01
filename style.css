@@ -1,0 +1,15 @@
+html, body, #text, #map { height: 100%; width: 100%; margin: 0; padding: 0;}
+
+#text {
+  font-family: 'Erica One';
+  font-size: 300%;
+  display: table;
+  position: absolute;
+  text-align: center;
+  top: 0;
+}
+
+#text p {
+  display: table-cell;
+  vertical-align: middle;
+}

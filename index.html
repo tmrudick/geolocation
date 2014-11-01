@@ -1,0 +1,46 @@
+<!doctype html>
+<html ng-app="geolocation">
+  <head>
+    <title>Where am I?</title>
+    <link href='http://fonts.googleapis.com/css?family=Erica+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body ng-controller="GeoCtrl">
+    <div id="map"></div>
+
+    <div id="text">
+      <p ng-hide="loaded" id="loading">Loading...</p>
+      <p ng-show="loaded">{{ latitude }}, {{ longitude }}</p>
+    </div>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6s4XHxOwNm03Bm2Y5cCTZYVLmIdJDg14"></script>
+    <script src="bower_components/angularjs/angular.js"></script>
+    <script>
+      angular.module('geolocation', [])
+        .controller('GeoCtrl', function($scope, $timeout) {
+          navigator.geolocation.getCurrentPosition(function(position) { 
+            $timeout(function() {
+              $scope.loaded = true;
+              $scope.latitude = position.coords.latitude;
+              $scope.longitude = position.coords.longitude;
+
+              new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: { lat: position.coords.latitude, lng: position.coords.longitude },
+                disableDefaultUI: true,
+                styles: [
+                  {
+                    "elementType": "geometry",
+                    "stylers": [
+                      { "saturation": -100 }
+                    ]
+                  }
+                ]
+              });
+            });
+          });
+        });    
+    </script>
+  </body>
+</html>
+
